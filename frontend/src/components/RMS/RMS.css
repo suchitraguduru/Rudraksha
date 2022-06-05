@@ -1,0 +1,76 @@
+.RMSHeader img{
+  
+    width: 100%;
+    height: auto;
+    
+  
+  }
+
+  .RmsHeading{
+      margin: 20px;
+      margin-bottom: 50px;
+      text-align: center;
+  }
+
+  .RmsHeading h2{
+      color: #2FA4FF;
+  }
+ 
+
+.RMSdiv1{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    /* border: 1px solid black; */
+}
+
+.RMSdiv1 div{
+    width: 22%;
+    /* border: 1px solid blue; */
+    margin: 10px;
+}
+
+.RMSdiv2{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    /* border: 1px solid black; */
+}
+
+.RMSdiv2 div{
+    width: 47%;
+    /* border: 1px solid blue; */
+    margin: 5px;
+}
+
+
+#RMSbtn{
+    text-align: center;
+}
+
+#RMSbtn button{
+    margin: 10px;
+}
+
+.RMSMain label{
+    font-weight: lighter;
+} 
+
+@media only screen and ( max-width: 480px){
+    .RMSdiv1{
+        display: block;
+    }
+
+    .RMSdiv1 div{
+        width: 100%;
+    }
+
+
+    .RMSdiv2{
+        display: block;
+    }
+
+    .RMSdiv2 div{
+        width: 100%;
+    }
+}
