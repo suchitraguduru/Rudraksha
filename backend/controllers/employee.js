@@ -15,19 +15,6 @@ const AddEmployee = async (req, res, next) => {
     if (exisitingEmp.length > 0) {
       throw new Error("The Given Employee Already Exist");
     }
-    // console.log(1);
-    // const db_connect = dbo.getDb("Rudraksha");
-    // console.log(2);
-    // const emp = await db_connect.collection("employee master table").insertOne({
-    //   ...req.body,
-    //   vaccinationDoseOneAttachment: req.files.vaccination1[0].buffer,
-    //   vaccinationDoseTwoAttachment: req.files.vaccination2[0].buffer,
-    //   profilePic: await sharp(req.files.profile[0].buffer)
-    //     .resize({ width: 200, height: 200 })
-    //     .png()
-    //     .toBuffer(),
-    //   cv: req.files.cv[0].buffer,
-    // }).;
     const emp = new Employee({
       ...req.body,
       vaccinationDoseOneAttachment: req.files.vaccination1[0].buffer,

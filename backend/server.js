@@ -21,11 +21,13 @@ const vendorRoutes = require("./routes/vendor");
 const eventRoutes = require("./routes/event");
 const costsheetRoutes = require("./routes/costsheet");
 const loginRoutes = require("./routes/login");
+const receptionRoutes = require("./routes/reception");
 app.use("/api/employee", employeeRoutes);
 app.use("/api/vendor", vendorRoutes);
 app.use("/api/event", eventRoutes);
 app.use("/api/costsheet", costsheetRoutes);
 app.use("/api/", loginRoutes);
+app.use("/api/reception", receptionRoutes);
 
 const ConnectDB = require("./database/connection");
 //connection to db

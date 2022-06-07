@@ -57,6 +57,7 @@ import CostSheet from "./components/CRMPage/CostSheet/CostSheetTable/CostSheet";
 import Home from "./components/CRMPage/Home/Home";
 import EventApproval from "./components/CRMPage/EventApproval/Eventapproval";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Reception from "./components/CRMPage/Reception/Reception";
 
 function App() {
   return (
@@ -78,7 +79,6 @@ function App() {
         <Route path="/rec" component={Rec} />
         <Route path="/join" component={Joining} />
         <Route path="/interview" component={Interview} />
-        <Route path="/RMS" component={RMS} />
         <Route path="/List" component={ListEmployee} />
         <Route path="/RecentList" component={RecentEmployee} />
         <Route path="/Listint" component={Listint} />
@@ -115,6 +115,7 @@ function App() {
         <Route path="/costsheetdata" component={CostSheet} />
         <Route path="/crm" component={Home} />
         <Route path="/approve" component={EventApproval} />
+        <Route path="/rms" component={Reception} />
       </Switch>
     </>
   );
