@@ -58,6 +58,21 @@ const updateReceptionTime = async (req, res, next) => {
   }
 };
 
+const getAllCodes = async (req, res, next) => {
+  try {
+    //get all codes from Reception master table
+    //send only name, phno, gender, photo buffer, accompanies, purpose, remarks
+    //it shld be a array of objects
+  } catch (error) {
+    console.log(error);
+    res.json({
+      success: false,
+      error: error.message,
+      message: "Some Error Occured Please try again later!",
+    });
+  }
+};
+
 module.exports = {
   addReceptionGuest,
 };
