@@ -14,7 +14,7 @@ const AddVendor = async (req, res, next) => {
     });
   } catch (error) {
     console.log(error);
-    res.status(400).json({
+    res.json({
       success: false,
       error: error.message,
     });
@@ -48,7 +48,7 @@ const getAllVendors = async (req, res, next) => {
     });
   } catch (error) {
     console.log(error);
-    res.status(400).json({
+    res.json({
       success: false,
       error: error.message,
     });
@@ -113,7 +113,7 @@ const createVendorReport = async (req, res, next) => {
       });
   } catch (error) {
     console.log(error);
-    res.status(400).json({
+    res.json({
       success: false,
       error: error.message,
     });
@@ -126,7 +126,7 @@ const getVendorReport = async (req, res, next) => {
     res.sendFile(filepath);
   } catch (error) {
     console.log(error);
-    res.status(500).json({
+    res.json({
       success: false,
       message: "Something Went Wrong!",
       error: error.message,
@@ -271,7 +271,7 @@ const getVendorTypeDetails = async (req, res, next) => {
     });
   } catch (error) {
     console.log(error);
-    res.status(500).json({
+    res.json({
       success: false,
       message: "Something Went Wrong!",
       error: error.message,

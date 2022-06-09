@@ -30,6 +30,17 @@ const receptionSchema = mongoose.Schema({
     require: true,
     trim: true,
   },
+  intime: {
+    type: Date,
+  },
+  outtime: {
+    type: Date,
+  },
+  guestcode: {
+    type: String,
+    unique: true,
+    require: true,
+  },
   remarks: String,
 });
 

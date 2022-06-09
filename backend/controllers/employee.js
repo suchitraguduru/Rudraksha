@@ -1,12 +1,12 @@
 const Employee = require("../models/employee");
+const Attendance = require("../models/attendance");
+const schedule = require("node-schedule");
 const fs = require("fs");
 const path = require("path");
 const pdfTemplate = require("../reports/employee");
 const moment = require("moment");
 const pdf = require("html-pdf");
 const sharp = require("sharp");
-const dbo = require("../database/connection");
-const ObjectId = require("mongodb").ObjectId;
 
 const AddEmployee = async (req, res, next) => {
   try {
@@ -25,8 +25,32 @@ const AddEmployee = async (req, res, next) => {
         .toBuffer(),
       cv: req.files.cv[0].buffer,
     });
-    console.log(emp);
     await emp.save();
+
+    //creating a attendance instance/document for this employee which will
+    // have this employee attendance details like otps generated details,
+    // no of days present..etc..
+    const att = await Attendance.create({
+      empId: emp._id,
+    });
+    // run everyday at midnight to increment noOfWorkingDays by one
+    schedule.scheduleJob("0 0 * * *", async () => {
+      const day = new Date().getDay();
+      if (day >= 2) {
+        const updateWorkingDays = await Attendance.findByIdAndUpdate(
+          att._id,
+          {
+            $inc: {
+              noOfWorkingDays: 1,
+            },
+          },
+          {
+            new: true,
+          }
+        );
+      }
+    });
+
     res.status(201).json({
       success: true,
       employee: emp,

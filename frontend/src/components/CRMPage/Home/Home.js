@@ -22,7 +22,7 @@ const Home = () => {
         <Container>
           <Navbar.Brand href="/crm">CRM PAGE</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="#home" className={styles.crm__nav}>
+            <Nav.Link href="/rms" className={styles.crm__nav}>
               RMS
             </Nav.Link>
             <Nav.Link href="#features" className={styles.crm__nav}>

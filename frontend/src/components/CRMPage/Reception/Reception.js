@@ -89,7 +89,9 @@ const Reception = () => {
             width={90}
             className={styles.reception__logo}
           />
-          <div className={styles.reception__form__heading}>Vendor Details</div>
+          <div className={styles.reception__form__heading}>
+            Reception Management System
+          </div>
         </div>
         <Form className={styles.reception__form} onSubmit={handleSubmitForm}>
           <div className={styles.reception__form2}>

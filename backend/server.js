@@ -22,12 +22,14 @@ const eventRoutes = require("./routes/event");
 const costsheetRoutes = require("./routes/costsheet");
 const loginRoutes = require("./routes/login");
 const receptionRoutes = require("./routes/reception");
+const attendanceRoutes = require("./routes/attendance");
 app.use("/api/employee", employeeRoutes);
 app.use("/api/vendor", vendorRoutes);
 app.use("/api/event", eventRoutes);
 app.use("/api/costsheet", costsheetRoutes);
 app.use("/api/", loginRoutes);
 app.use("/api/reception", receptionRoutes);
+app.use("/api/attendance", attendanceRoutes);
 
 const ConnectDB = require("./database/connection");
 //connection to db
