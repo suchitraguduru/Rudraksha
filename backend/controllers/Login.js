@@ -20,7 +20,6 @@ const signIn = async (req, res, next) => {
     } else {
       const emp = await Employee.findOne({ email });
 
-      console.log(emp);
       if (!emp) {
         throw new Error("No employee with that email!");
       }

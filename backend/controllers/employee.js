@@ -11,7 +11,6 @@ const sharp = require("sharp");
 const AddEmployee = async (req, res, next) => {
   try {
     const exisitingEmp = await Employee.find({ email: req.body.email });
-    console.log(exisitingEmp);
     if (exisitingEmp.length > 0) {
       throw new Error("The Given Employee Already Exist");
     }
@@ -37,7 +36,7 @@ const AddEmployee = async (req, res, next) => {
     schedule.scheduleJob("0 0 * * *", async () => {
       const day = new Date().getDay();
       if (day >= 2) {
-        const updateWorkingDays = await Attendance.findByIdAndUpdate(
+        await Attendance.findByIdAndUpdate(
           att._id,
           {
             $inc: {
