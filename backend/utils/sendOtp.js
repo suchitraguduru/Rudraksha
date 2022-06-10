@@ -6,8 +6,8 @@ const sendOtpViaMail = async (to, otp) => {
     port: 587,
     secure: false,
     auth: {
-      user: "rithikavijaykumar@gmail.com",
-      pass: "fjhfdrwukseftgct",
+      user: "rwfmcapmo@gmail.com",
+      pass: "yfkrhkvqahbtfzpa",
     },
   });
   const mailOptions = {

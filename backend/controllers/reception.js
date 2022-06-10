@@ -75,4 +75,5 @@ const getAllCodes = async (req, res, next) => {
 
 module.exports = {
   addReceptionGuest,
+  updateReceptionTime,
 };
