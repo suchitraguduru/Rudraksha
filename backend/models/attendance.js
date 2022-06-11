@@ -16,6 +16,7 @@ const AttendanceSchema = mongoose.Schema({
     default: 0,
   },
   attendanceDetails: [Object],
+  presentDays: [String],
 });
 const Attendance = mongoose.model("attendance master table", AttendanceSchema);
 

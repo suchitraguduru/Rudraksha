@@ -57,10 +57,15 @@ const verifyOtp = async (req, res, next) => {
     if (!emp) throw new Error("No Employee Exist with that Id");
 
     const attInfo = await Attendance.findOne({ empId });
+    const date = new Date();
+    const presentdate = `${date.getDate()}|${date.getMonth()}|${date.getFullYear()}`;
+    const AlreadyGivenAtendance = attInfo.presentDays.find(
+      (_date) => _date == presentdate
+    );
+    if (AlreadyGivenAtendance) throw new Error("Already attendance given!");
     const matchOtp = attInfo.attendanceDetails.find(
       (element) => element.otp == otp
     );
-    console.log(matchOtp);
     if (!matchOtp) throw new Error("Invalid Otp!");
 
     //after otp is matched/verified
@@ -69,6 +74,7 @@ const verifyOtp = async (req, res, next) => {
       attInfo._id,
       {
         noOfDaysPresent: attInfo.noOfDaysPresent + 1,
+        presentDays: [...attInfo.presentDays, presentdate],
       },
       {
         new: true,
