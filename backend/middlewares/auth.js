@@ -7,15 +7,13 @@ const adminAccess = async (req, res, next) => {
     if (authorization) {
       const token = authorization.slice(7, authorization.length);
       const decode = jwt.verify(token, process.env.secret);
-      console.log("heyyy");
+
       if (
         decode.email === process.env.ADMIN_USERNAME &&
         decode.password === process.env.ADMIN_PASSWORD
       ) {
-        console.log("ok");
         next();
       } else {
-        console.log("oops");
         res.json({
           success: false,
           error: "You are not authorized to use this page!",
@@ -40,7 +38,6 @@ const adminAccess = async (req, res, next) => {
 const authentication = async (req, res, next) => {
   try {
     const authorization = req.headers.authorization;
-    console.log(authorization);
     if (authorization) {
       const token = authorization.slice(7, authorization.length);
       const decode = jwt.verify(token, process.env.secret);
@@ -83,7 +80,6 @@ const costSheetApprovalAccess = async (req, res, next) => {
     if (authorization) {
       const token = authorization.slice(7, authorization.length);
       const decode = jwt.verify(token, process.env.secret);
-      console.log(decode);
       if (
         decode.email === process.env.ADMIN_USERNAME &&
         decode.password === process.env.ADMIN_PASSWORD

@@ -23,7 +23,6 @@ const signIn = async (req, res, next) => {
       if (!emp) {
         throw new Error("No employee with that email!");
       }
-      console.log(emp);
       const passwordMatch = await bcrypt.compare(password, emp.password);
       if (!passwordMatch) {
         throw new Error("Passwords doesnt match!");

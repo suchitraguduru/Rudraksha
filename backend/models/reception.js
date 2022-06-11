@@ -41,6 +41,11 @@ const receptionSchema = mongoose.Schema({
     unique: true,
     require: true,
   },
+  addedBy: {
+    type: mongoose.Types.ObjectId,
+    require: true,
+    ref: "Employee",
+  },
   remarks: String,
 });
 

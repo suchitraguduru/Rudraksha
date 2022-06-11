@@ -13,6 +13,7 @@ const addReceptionGuest = async (req, res, next) => {
       ...req.body,
       photo: req.file.buffer,
       guestcode,
+      addedBy: req.emp._id,
     });
 
     await guest.save();
