@@ -16,7 +16,12 @@ const Reception = () => {
   const [accompanies, setaccompanies] = useState("");
   const [purpose, setpurpose] = useState("");
   const [remarks, setremarks] = useState("");
+  const [intime, setintime] = useState("");
+  const [outtime, setouttime] = useState("");
 
+
+  var date = new Date();
+  var currentTime = date.getHours() + ':' + date.getMinutes();
   //submit btn,
   const [btnData, setBtnData] = useState("Add Guest Details");
   const [error, setError] = useState("");
@@ -43,6 +48,8 @@ const Reception = () => {
       formdata.set("accompanies", accompanies);
       formdata.set("purpose", purpose);
       formdata.set("remarks", remarks);
+      formdata.set("intime", intime);
+      formdata.set("outtime", outtime);
 
       const data = await axios.post(
         "http://localhost:5000/api/reception/addReceptionGuest",
@@ -67,6 +74,8 @@ const Reception = () => {
       setaccompanies("");
       setpurpose("");
       setremarks("");
+      setintime("");
+      setouttime("");
       setTimeout(() => {
         setBtnData("Add Guest Details");
       }, 2000);
@@ -140,6 +149,28 @@ const Reception = () => {
                     name="firstVaccinationDate"
                     ref={photoref}
                     onChange={(e) => setPhoto(e.target.files[0])}
+                    required
+                  />
+                </Form.Group>
+
+                <Form.Group as={Col} md="4" controlId="validationFormik01">
+                  <Form.Label>Intime</Form.Label>
+                  <Form.Control
+                    type="time"
+                    name="intime"
+                    value={currentTime}
+                    // onChange={(e) => setintime(e.target.value)}
+                    required
+                  />
+                </Form.Group>
+
+                <Form.Group as={Col} md="4" controlId="validationFormik02">
+                  <Form.Label>Out Time</Form.Label>
+                  <Form.Control
+                    type="time"
+                    name="outtime"
+                    value={outtime}
+                    onChange={(e) => setouttime(e.target.value)}
                     required
                   />
                 </Form.Group>
